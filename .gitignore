@@ -2,3 +2,6 @@
 **/__pycache__/
 /logs/
 .env
+
+/node_modules/
+javascript/bitflyer-realtime-lob/dist/

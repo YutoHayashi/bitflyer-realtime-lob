@@ -1,0 +1,22 @@
+{
+  "name": "bitflyer-realtime-lob-project",
+  "version": "1.0.0",
+  "description": "A project for real-time order book of Bitflyer",
+  "private": true,
+  "workspaces": [
+    "javascript/bitflyer-realtime-lob"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YutoHayashi/bitflyer-realtime-lob.git"
+  },
+  "author": "https://github.com/YutoHayashi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/YutoHayashi/bitflyer-realtime-lob/issues"
+  },
+  "homepage": "https://github.com/YutoHayashi/bitflyer-realtime-lob#readme"
+}
