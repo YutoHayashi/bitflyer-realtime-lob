@@ -3,7 +3,7 @@ import {
 } from './types.js';
 
 import fetch, {
-    RequestInit
+    type RequestInit
 } from 'node-fetch';
 
 export class HttpError extends Error {}

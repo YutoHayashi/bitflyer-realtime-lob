@@ -10,7 +10,7 @@ import { BitflyerApi } from './http.js';
 import { Store } from './data.js';
 import { Board } from './types.js';
 
-class LightningBoardOpenHandler extends AbstractJsonRpcMessageHandler<boolean> {
+class LightningBoardConnectedHandler extends AbstractJsonRpcMessageHandler<boolean> {
     public async handleMessage(): Promise<void> {
         const board = await this.bitflyerApi.getBoard();
         await this.store.initBoard(board);
@@ -51,8 +51,8 @@ export default class extends Container {
                 cryptoCurrencyCode
             );
         });
-        this.bind<LightningBoardOpenHandler>('lightningBoardOpenHandler').toDynamicValue(context => {
-            return new LightningBoardOpenHandler(
+        this.bind<LightningBoardConnectedHandler>('lightningBoardConnectedHandler').toDynamicValue(context => {
+            return new LightningBoardConnectedHandler(
                 `subscribe_lightning_board_${cryptoCurrencyCode}`,
                 context.get<BitflyerApi>('bitflyerApi'),
                 context.get<Store>('store')
@@ -69,7 +69,7 @@ export default class extends Container {
                 "wss://ws.lightstream.bitflyer.com/json-rpc",
                 [`lightning_board_${cryptoCurrencyCode}`],
                 [
-                    context.get<LightningBoardOpenHandler>('lightningBoardOpenHandler'),
+                    context.get<LightningBoardConnectedHandler>('lightningBoardConnectedHandler'),
                     context.get<LightningBoardHandler>('lightningBoardHandler')
                 ]
             );
